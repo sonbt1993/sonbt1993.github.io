@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 80%;
+    margin: auto;
+
+}
+img {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+}
+
+span {
+    display: inline-block;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.img-wrapper{
+    width: 100%;
+    margin: 5px;
+}
+
+button{
+    left: 20px;
+    position: absolute;
+    border: solid   blue;
+    border-radius: 4px;
+    width: 100px;
+    height: 50px;
+}
+
+.row{
+    display: flex;
+    margin: 20px;
+    border: solid blue;
+    border-radius: 4px;
+    align-items: center;
+}
+
+
+
+.content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;    
+    
+}

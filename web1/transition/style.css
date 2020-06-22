@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button{
+    width: 200px;
+    height: 60px;
+    
+}
+
+button:hover{
+    background-color: red;
+    width: 600px;
+    transition-timing-function: ease ease;
+    transition-duration: 3s 1s;
+}

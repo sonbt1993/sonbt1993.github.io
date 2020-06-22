@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<html>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let c = canvas.getContext('2d');
+
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        addEventListener("resize", () => {
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+        });
+
+        class Circle {
+            constructor(centerx, centery, radius, color) {
+                this.centerx = centerx;
+                this.centery = centery;
+                this.color = color;
+                this.radius = radius
+            };
+
+            draw() {
+                
+                c.beginPath();
+                c.arc(this.centerx, this.centery, this.radius, 0, Math.PI * 2, false);
+                c.strokeStyle = this.color;
+                c.stroke();
+                c.fillStyle = this.color;
+                c.fill();
+                c.closePath();
+                
+            }
+        }
+
+        class Square {
+            constructor(x, y, width, color) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.color = color;
+
+            };
+
+            draw() {
+                c.beginPath();
+                c.rect(this.x, this.y, this.width, this.width);
+                c.strokeStyle = this.color;
+                c.stroke();
+                c.fillStyle = this.color;
+                c.fill();
+                c.closePath();
+            }
+        }
+
+        let centerx = canvas.width / 2;
+        let centery = canvas.height / 2;
+        var squareArray = [];
+        var circleArray = [];
+        let radius = 200;
+        //let a = (radius * Math.sqrt( 2 ));
+
+        /* let circleA = new Circle(centerx, centery, radius, 'blue');
+        let squareA = new Square(centerx - (radius * Math.sqrt( 2 ))/2, centery - (radius * Math.sqrt( 2 ))/2, (radius * Math.sqrt( 2 )), 'red');
+        let circleB = new Circle(centerx, centery, (radius * Math.sqrt( 2 ))/2, 'green')
+        let squareB = new Square(centerx - (radius * Math.sqrt( 2 ))/(2*Math.sqrt( 2 )), centery - (radius * Math.sqrt( 2 ))/(2*Math.sqrt( 2 )), ((radius * Math.sqrt( 2 ))/2) * Math.sqrt( 2 ), 'yellow');
+        let circleC = new Circle(centerx, centery, radius /  2 , 'purple')
+        let squareC = new Square(centerx - radius / (2*Math.sqrt( 2 )), centery - radius / (2*Math.sqrt( 2 )), radius / Math.sqrt( 2 ), 'black'); */
+        for (let i = 0; i <= 6; i++) {
+            
+            var circle = new Circle(centerx, centery, radius / (Math.pow(Math.sqrt(2), i)), 'blue');
+             
+            circleArray.push(circle)
+            squareArray.forEach(square => square.draw());
+            
+            
+            var square = new Square(centerx - radius / (Math.pow(Math.sqrt(2), i + 1)), centery - radius / (Math.pow(Math.sqrt(2), i + 1)), (radius * Math.sqrt(2)) / (Math.pow(Math.sqrt(2), i)), 'red')
+            squareArray.push(square);
+            circleArray.forEach(circle => circle.draw());
+            
+        }
+
+
+        /* function animate() {
+            requestAnimationFrame(animate);
+            c.clearRect(0, 0, canvas.width, canvas.height);
+            
+            squareArray.forEach(square => square.draw());
+            
+            circleArray.forEach(circle => circle.draw());
+            
+        }
+
+        animate(); */
+    </script>
+</body>
+
+</html>

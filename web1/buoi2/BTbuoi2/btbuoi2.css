@@ -1,0 +1,54 @@
+.heading{
+    text-align: center;
+    color: red;
+    font-size: 17px
+}
+#tittle{
+    color: orange;
+    font-size: 32px
+}
+.info{
+    line-height: 1.5;
+    margin-left: 500px;
+    margin-right: 500px;
+    color: #EDE907;
+}
+.main_content{ 
+    line-height: 2;
+    margin-left: 500px;
+    margin-right: 500px;
+    text-justify: auto;
+    font-size: 16px
+}
+.ending{
+    margin-left: 500px;
+    margin-right: 500px;
+    text-align: right;
+    font-weight: bold;
+}
+#sign{
+    margin-left: 1090px;
+    margin-right: 550px;
+}
+#name{
+    margin-left: 1140px;
+    margin-right: 600px;
+}
+.second_bold{
+    background-color: silver;
+}
+#first_line{
+    color: green;
+}
+#second_line{
+    color: blue;
+}
+#third_line{
+    color: purple;
+}
+#fourth_line{
+    color: pink;
+}
+#fifth_line{
+    color: pink;
+}

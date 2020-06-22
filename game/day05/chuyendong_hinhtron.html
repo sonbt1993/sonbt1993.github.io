@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #canvas {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const c = canvas.getContext('2d');
+
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    
+    class Ball {
+      constructor(radius, color, x, y) {
+        this.radius = radius;
+        this.color = color;
+        this.x = x;
+        this.y = y;
+      }
+
+      draw() {
+        c.beginPath();
+        c.rect(this.x, this.y, 100, 200);
+        c.fillStyle = this.color;
+        c.fill();
+        c.closePath();
+      }
+
+      move() {
+        this.x += 10; //Chuyển động tịnh tiến đều từ trái sang phải
+        if (this.x - 200 >= canvas.width) {
+          //nếu vượt quá cạnh phải màn hình thì quay lại từ cạnh bên trái
+          this.x = - 200;
+        }
+        this.draw();
+      }
+    }
+
+    class Sun {
+      constructor(radius, color, x, y) {
+        this.radius = radius;
+        this.color = color;
+        this.x = x;
+        this.y = y;
+      }
+
+      draw() {
+        c.beginPath();
+        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        c.fillStyle = this.color;
+        c.fill();
+        c.closePath();
+      }
+      
+      
+    }
+    let radius = 30;    
+    let ball = new Ball(radius, 'green', -radius, canvas.height * 0.5);
+    let sun = new Sun(50, 'yellow', canvas.width * 0.5, canvas.height * 0.5)
+    function animate() {
+      requestAnimationFrame(animate);
+      c.clearRect(0, 0, canvas.width, canvas.width);
+      ball.move();
+      sun.draw();
+    }
+    animate();
+
+  </script>
+</body>
+
+</html>

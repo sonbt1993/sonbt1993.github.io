@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function giaithua(n) {
+            if (n == 0 | n == 1) {
+                return 1;
+            } else {
+                return n * giaithua(n - 1);
+            }
+        }
+        console.log(giaithua(5));
+
+        function luythua(x, n) {
+            if (n < 0) {
+                return 1;
+            } else {
+                return x * luythua(x, n - 1);
+            }
+        }
+        console.log(luythua(2, 10));
+
+        function tong(n) {
+            if (n < 1) {
+                return 0
+            } else {
+                return n + tong(n - 1);
+
+            }
+        }
+
+        console.log(tong(10));
+
+        function fibonanci(n){
+            if (n < 2) {
+                return n
+        }else{
+            return fibonanci(n-1) + fibonanci(n-2)
+        }
+        }
+        console.log(fibonanci(8))
+
+
+
+        
+
+    </script>
+
+</body>
+
+</html>

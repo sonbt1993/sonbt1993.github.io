@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    addEventListener("resize", () => {
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+    });
+
+
+    class Point {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    class Triangle {
+        constructor(pointA, pointB, pointC) {
+            this.pointA = pointA;
+            this.pointB = pointB;
+            this.pointC = pointC;
+        }
+
+    }
+
+    let triangle = new Triangle(new Point(1, 2), new Point(200, 300), new Point(900, 400));
+
+    ctx.beginPath();
+
+    ctx.moveTo(triangle.pointA.x, triangle.pointA.y);
+    ctx.lineTo(triangle.pointB.x, triangle.pointB.y);
+    ctx.lineTo(triangle.pointC.x, triangle.pointC.y);
+    ctx.lineTo(triangle.pointA.x, triangle.pointA.y);
+
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.setLineDash([5, 7]);
+
+    ctx.moveTo(triangle.pointA.x, triangle.pointA.y);
+    ctx.lineTo((triangle.pointB.x + triangle.pointC.x) * 0.5, (triangle.pointB.y + triangle.pointC.y) * 0.5);
+
+    ctx.moveTo(triangle.pointB.x, triangle.pointB.y);
+    ctx.lineTo((triangle.pointA.x + triangle.pointC.x) * 0.5, (triangle.pointA.y + triangle.pointC.y) * 0.5);
+
+    ctx.moveTo(triangle.pointC.x, triangle.pointC.y);
+    ctx.lineTo((triangle.pointA.x + triangle.pointB.x) * 0.5, (triangle.pointA.y + triangle.pointB.y) * 0.5);
+
+
+    ctx.strokeStyle = 'blue';
+    ctx.stroke();
+    ctx.closePath();
+
+
+
+</script>
+
+</html>

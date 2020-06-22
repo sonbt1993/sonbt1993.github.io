@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+}
+.first_paragraph{
+    color: #FFC387;
+    background-color: #3F8CFF;
+    font-size: 20px;
+    padding: 5px;
+    margin: 1px;
+    width: 49%;
+    height: 150px;
+    float: left;
+    
+
+}
+.second_paragraph{
+    background-color: sienna;
+    width: 49%;
+    height: 149px;
+    float: right;
+    opacity: 100;
+}
+

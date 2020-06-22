@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-wid
+    th, initial-scale=1.0">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./style.css">
+    <title>Card</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="menu">
+                <div class="list-icon" style="margin-left: 20px;">
+                    <i class="fas fa-list"></i>
+
+                </div>
+                <div class="menu-icon" style="width: 72px; height: 23px; margin-left: 20px;">
+                    <img src="data:image/jpeg;base64,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" alt="anh">
+                </div>
+
+            </div>
+            <div class="search-box">
+                <input type="text" name="search" placeholder="Search..">
+
+            </div>
+            <div class="profile">
+                <div class="search-box-img">
+                    <img style="width: 32px; height: 32px; border-radius: 50%;" src="https://i0.wp.com/danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg?fit=624%2C563&ssl=1"
+                        alt="anh">
+                </div>
+                <span style="margin-left: 5px;">Randall Cohen</span>
+                <span style="margin-left: 5px;"><i class="fas fa-chevron-down"></i></span>
+
+            </div>
+
+        </div>
+        <div class="top-row">
+            <div class="left">
+                <div class="rocket-icon">
+                    <span><i class="fas fa-rocket"></i></span>
+                </div>
+                <div class="left-text">
+                    <span style="font-weight: 500; font-size: 18px; line-height: 21px;">Team Members</span>
+                    <span style="font-weight: lighter; font-size: 12px; line-height: 14px;">Rocket</span>
+
+                </div>
+
+            </div>
+            <div class="right">
+                <div>
+                    <button class="top-row-btn"
+                        style="box-shadow: 0px 10px 20px rgba(80, 123, 252, 0.5);background: #507BFC; color: white">All</button>
+                </div>
+                <div>
+                    <button class="top-row-btn">My Team</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="card">
+                <div class="card__icon">
+                    <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="card__thumbnail">
+                    <img src="https://i0.wp.com/danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg?fit=624%2C563&ssl=1"
+                        alt="">
+                </div>
+
+                <div class="card__info">
+                    <span class="name">Eugenia Hoffman</span>
+                    <span class="email">eugenia@gmail.com</span>
+                </div>
+
+                <div class="card__btn">
+                    <button class="btn btn__assign">
+                        <span class="btn__icon"><i class="fa fa-address-book-o" aria-hidden="true"></i></span>
+                        <span class="btn__name">Assign</span>
+                    </button>
+
+                    <button class="btn btn__view">
+                        <span class="btn__icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                        <span class="btn__name">View</span>
+                    </button>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card__icon">
+                    <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="card__thumbnail">
+                    <img src="https://i0.wp.com/danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg?fit=624%2C563&ssl=1"
+                        alt="">
+                </div>
+
+                <div class="card__info">
+                    <span class="name">Eugenia Hoffman</span>
+                    <span class="email">eugenia@gmail.com</span>
+                </div>
+
+                <div class="card__btn">
+                    <button class="btn btn__assign">
+                        <span class="btn__icon"><i class="fa fa-address-book-o" aria-hidden="true"></i></span>
+                        <span class="btn__name">Assign</span>
+                    </button>
+
+                    <button class="btn btn__view">
+                        <span class="btn__icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                        <span class="btn__name">View</span>
+                    </button>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card__icon">
+                    <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="card__thumbnail">
+                    <img src="https://i0.wp.com/danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg?fit=624%2C563&ssl=1"
+                        alt="">
+                </div>
+
+                <div class="card__info">
+                    <span class="name">Eugenia Hoffman</span>
+                    <span class="email">eugenia@gmail.com</span>
+                </div>
+
+                <div class="card__btn">
+                    <button class="btn btn__assign">
+                        <span class="btn__icon"><i class="fa fa-address-book-o" aria-hidden="true"></i></span>
+                        <span class="btn__name">Assign</span>
+                    </button>
+
+                    <button class="btn btn__view">
+                        <span class="btn__icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                        <span class="btn__name">View</span>
+                    </button>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card__icon">
+                    <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="card__thumbnail">
+                    <img src="https://i0.wp.com/danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg?fit=624%2C563&ssl=1"
+                        alt="">
+                </div>
+
+                <div class="card__info">
+                    <span class="name">Eugenia Hoffman</span>
+                    <span class="email">eugenia@gmail.com</span>
+                </div>
+
+                <div class="card__btn">
+                    <button class="btn btn__assign">
+                        <span class="btn__icon"><i class="fa fa-address-book-o" aria-hidden="true"></i></span>
+                        <span class="btn__name">Assign</span>
+                    </button>
+
+                    <button class="btn btn__view">
+                        <span class="btn__icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                        <span class="btn__name">View</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="card">
+                <div class="card__icon">
+                    <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="card__thumbnail">
+                    <img src="https://i0.wp.com/danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg?fit=624%2C563&ssl=1"
+                        alt="">
+                </div>
+
+                <div class="card__info">
+                    <span class="name">Eugenia Hoffman</span>
+                    <span class="email">eugenia@gmail.com</span>
+                </div>
+
+                <div class="card__btn">
+                    <button class="btn btn__assign">
+                        <span class="btn__icon"><i class="fa fa-address-book-o" aria-hidden="true"></i></span>
+                        <span class="btn__name">Assign</span>
+                    </button>
+
+                    <button class="btn btn__view">
+                        <span class="btn__icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                        <span class="btn__name">View</span>
+                    </button>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card__icon">
+                    <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="card__thumbnail">
+                    <img src="https://i0.wp.com/danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg?fit=624%2C563&ssl=1"
+                        alt="">
+                </div>
+
+                <div class="card__info">
+                    <span class="name">Eugenia Hoffman</span>
+                    <span class="email">eugenia@gmail.com</span>
+                </div>
+
+                <div class="card__btn">
+                    <button class="btn btn__assign">
+                        <span class="btn__icon"><i class="fa fa-address-book-o" aria-hidden="true"></i></span>
+                        <span class="btn__name">Assign</span>
+                    </button>
+
+                    <button class="btn btn__view">
+                        <span class="btn__icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                        <span class="btn__name">View</span>
+                    </button>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card__icon">
+                    <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="card__thumbnail">
+                    <img src="https://i0.wp.com/danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg?fit=624%2C563&ssl=1"
+                        alt="">
+                </div>
+
+                <div class="card__info">
+                    <span class="name">Eugenia Hoffman</span>
+                    <span class="email">eugenia@gmail.com</span>
+                </div>
+
+                <div class="card__btn">
+                    <button class="btn btn__assign">
+                        <span class="btn__icon"><i class="fa fa-address-book-o" aria-hidden="true"></i></span>
+                        <span class="btn__name">Assign</span>
+                    </button>
+
+                    <button class="btn btn__view">
+                        <span class="btn__icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                        <span class="btn__name">View</span>
+                    </button>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card__icon">
+                    <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                </div>
+
+                <div class="card__thumbnail">
+                    <img src="https://i0.wp.com/danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg?fit=624%2C563&ssl=1"
+                        alt="">
+                </div>
+
+                <div class="card__info">
+                    <span class="name">Eugenia Hoffman</span>
+                    <span class="email">eugenia@gmail.com</span>
+                </div>
+
+                <div class="card__btn">
+                    <button class="btn btn__assign">
+                        <span class="btn__icon"><i class="fa fa-address-book-o" aria-hidden="true"></i></span>
+                        <span class="btn__name">Assign</span>
+                    </button>
+
+                    <button class="btn btn__view">
+                        <span class="btn__icon"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                        <span class="btn__name">View</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

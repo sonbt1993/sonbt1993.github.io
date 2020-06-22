@@ -1,0 +1,9 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: sp;
+}
+
+.grid-item{
+    border: solid 1px;
+}

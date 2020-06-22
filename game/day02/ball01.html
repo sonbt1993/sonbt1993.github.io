@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <canvas id="canvas"></canvas>
+</body>
+
+</html>
+<!---
+  Tạo hiệu ứng hoạt hình bóng tự động di chuyển theo phương ngang
+  Bổ xung thêm đoạn này
+  function animate() {
+    requestAnimationFrame(animate);
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    ball.move();
+  }
+
+  animate();
+-->
+<script>
+  var canvas = document.getElementById("canvas");
+  var c = canvas.getContext('2d');
+
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+
+  addEventListener("resize", function () {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+  });
+
+
+  class Ball {
+    constructor(x, y, radius, color) {
+      this.x = x;
+      this.y = y;
+      this.dx = 0;
+      this.dy = 0;  
+      this.radius = radius;
+      this.color = color;
+    }
+
+    draw() {
+      c.beginPath();
+      c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+      c.fillStyle = this.color;
+      c.fill();
+      c.stroke();
+      c.closePath();
+    }
+
+    /* Bổ xung logic chặn bóng không đi quá tường trái và phải
+    */
+    move() {
+      
+
+      if (this.x + this.radius >= innerWidth) {
+        if (this.y - this.radius <= 0 ) {
+          this.dx = 0, this.dy = 2;
+          }
+        if (this.y + this.radius >= innerHeight) {
+          this.dx = -2, this.dy = 0;
+          }  
+        } 
+
+      if (this.x - this.radius <= 0) {
+        if (this.y + this.radius >= innerHeight) {
+          this.dx = 0, this.dy = -2;
+        }
+        if (this.y - this.radius <= 0 ) {
+          this.dx = 2, this.dy = 0;
+          }
+      }
+     
+      console.log(this.x, this.y)
+      this.x += this.dx;
+      this.y += this.dy;
+      this.draw();
+    }
+
+    jump(x, y) {
+      c.clearRect(0, 0, canvas.width, canvas.height);
+      this.x = x;
+      this.y = y;
+      this.draw();
+    }
+  }
+
+  
+  var ball = new Ball(20, 20, 20, 'red');
+  ball.draw();
+
+  //Di chuyển sang trái và phải 
+  addEventListener('keydown', function (event) {
+    if (event.keyCode == 37) {
+      console.log('Left was pressed');
+      ball.dx = -2;
+    }
+    if (event.keyCode == 39) {
+      console.log('Right was pressed');
+      ball.dx = 2;
+    }
+    if (event.keyCode == 40) {
+      console.log('Down was pressed');
+      ball.dy = 2;
+    }
+    if (event.keyCode == 38) {
+      console.log('Up was pressed');
+      ball.dy = -2;
+    }
+
+    if (event.keyCode == 32) {
+      console.log('Space was pressed');
+      ball.dx = 0;
+      ball.dy = 0;      
+    }
+    
+  });
+
+  addEventListener("click", function (event) {
+    ball.jump(canvas.width * 0.5, canvas.height * 0.5);
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    ball.move();
+  }
+
+  animate();
+</script>

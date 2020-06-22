@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    
+
+</body>
+<script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        class BorderWall {
+            resize() {
+                this.x = 10;
+                this.y = 10;
+                this.width = canvas.width - 60;
+                this.height = canvas.height - 60;
+            }
+
+            constructor() {
+                this.resize();
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.lineWidth = 10;
+                ctx.strokeStyle = "#333";
+                ctx.rect(this.x, this.y, this.width, this.height);
+                ctx.stroke();
+                ctx.closePath();
+            }
+        }
+
+        class Ball {
+            constructor(x, y, radius) {
+                this.x = x;
+                this.y = y;
+                this.dx = 0;
+                this.dy = 0;
+                this.v = 0;
+                this.isRun = false;
+                this.radius = radius;
+                this.direction = "";
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.fillStyle = "red";
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                ctx.fill();
+            }
+
+            move() {
+                if (this.x + this.radius <= 55 && this.y + this.radius <= 55) {
+                    ball.direction = "right";
+                } else if (
+                    this.x + this.radius >= canvas.width - 55 &&
+                    this.y + this.radius <= 55
+                ) {
+                    ball.direction = "down";
+                } else if (
+                    this.x + this.radius >= canvas.width - 55 &&
+                    this.y + this.radius >= canvas.height - 55
+                ) {
+                    ball.direction = "left";
+                } else if (
+                    this.x + this.radius <= 55 &&
+                    this.y + this.radius >= canvas.height - 55
+                ) {
+                    ball.direction = "up";
+                }
+                if (this.isRun) {
+                    if (this.v < 5) {
+                        this.v += 0.02;
+                    }
+                    switch (this.direction) {
+                        case "left":
+                            this.dx = -this.v;
+                            this.dy = 0;
+                            break;
+                        case "right":
+                            this.dx = this.v;
+                            this.dy = 0;
+                            break;
+                        case "up":
+                            this.dx = 0;
+                            this.dy = -this.v;
+                            break;
+                        case "down":
+                            this.dx = 0;
+                            this.dy = this.v;
+                            break;
+                    }
+                } else {
+                    if (this.v > 0) {
+                        this.v -= 0.02;
+                    }
+                    switch (this.direction) {
+                        case "left":
+                            this.dx = -this.v;
+                            this.dy = 0;
+                            break;
+                        case "right":
+                            this.dx = this.v;
+                            this.dy = 0;
+                            break;
+                        case "up":
+                            this.dx = 0;
+                            this.dy = -this.v;
+                            break;
+                        case "down":
+                            this.dx = 0;
+                            this.dy = this.v;
+                            break;
+                    }
+                }
+
+                this.x = this.x + this.dx;
+                this.y = this.y + this.dy;
+                this.draw();
+            }
+        }
+
+        let bW = new BorderWall();
+        let ball = new Ball(35, 35, 20);
+
+        ball.draw();
+        bW.draw();
+
+        addEventListener("resize", function () {
+            canvas.width = this.innerWidth;
+            canvas.height = this.innerHeight;
+            bW.resize();
+            bW.draw();
+        });
+
+        addEventListener("keydown", function (event) {
+            this.console.log(event.keyCode);
+            this.console.log(ball.direction);
+            if (event.keyCode === 32) {
+                ball.isRun = !ball.isRun;
+            }
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ball.move();
+            bW.draw();
+        }
+
+        animate();
+    </script>
+</html>

@@ -1,0 +1,32 @@
+* {box-sizing: border-box;}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+}
+
+.header-menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-search-bar{
+    display: flex;
+    justify-content: space-between;
+}
+.header-icon{
+    height: 40px;
+
+}
+
+.header-end{
+    display: flex;
+    justify-content: space-between;
+
+}

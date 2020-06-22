@@ -1,0 +1,105 @@
+.no_float{ 
+    clear: both;
+}
+
+.header-bar{
+    width: 1192px;
+    height: 40px;
+    box-sizing: border-box; 
+    padding-left: 11.1739px; 
+    padding-right: 11.8261px;
+
+}
+
+.header-content{ 
+    width: 25%;
+    height: 100px;
+    float: left;
+}
+
+.header-picture{
+    float: left; 
+}
+
+.header-paragraph{
+    width: 150px;
+    height: 60px;
+    float: left;
+    margin-left: 10px;  
+}
+
+.sale-wrapper{ 
+    width: 300px;
+    height: 400px;
+    float: left;
+    border: solid orange 1px;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-bottom: 30px;     
+}
+
+.sale-content{
+    width: 200;
+    height: 300px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.picture-sale{
+    margin: 5px; 
+    width: 240px;
+    height: 200px;
+}
+
+.sale-content::after{
+    
+    content: "Trái cây nhập khẩu khác";
+    content: "Sầu riêng Musang King Malaysia";
+}
+
+.sale-content:hover{
+    background-color: yellow;
+}
+
+.buy{
+    width: 50;
+    height: 25px;
+    text-align: center;
+    margin-right: 25px;
+    margin-left: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: orange;
+    color: white;
+}
+
+.buy:hover{
+    background-color: black;
+}
+
+.fruits-wrapper{
+    margin: 5px; 
+    width: 1000px;
+    height: 580px;
+    float: left;
+}
+
+.fruits-content{
+    margin: 20px; 
+    width: 170px;
+    height: 250px;
+    float: left;
+    border: solid orange;
+    border-radius: 5px;
+}
+
+.fruits-content:hover{
+    background-color: black;
+}
+
+.fruits-picture{
+    width: 160px;
+    height: 160px;
+    margin: 5px;
+}

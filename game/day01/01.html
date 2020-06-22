@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BT game HTML</title>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="1000" style="background-color: white;"></canvas>
+</body>
+<script>
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+    
+    context.beginPath();
+    context.rect(0, 0, 900, 900);
+    context.fillStyle = '#EDC682';
+    context.fill();
+    context.lineWidth = 1;
+    context.strokeStyle = 'black';
+    context.stroke();
+    context.closePath();
+
+    context.beginPath();
+    context.fillStyle = 'white'
+    context.fillRect(50, 50, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(50, 150, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(50, 250, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(50, 350, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(50, 450, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(50, 550, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(50, 650, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(50, 750, 100, 100)
+    context.closePath();
+
+    context.beginPath();
+    context.fillStyle = 'black'
+    context.fillRect(150, 50, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(150, 150, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(150, 250, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(150, 350, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(150, 450, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(150, 550, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(150, 650, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(150, 750, 100, 100)
+    context.closePath();
+    
+    context.beginPath();
+    context.fillStyle = 'white'
+    context.fillRect(250, 50, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(250, 150, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(250, 250, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(250, 350, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(250, 450, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(250, 550, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(250, 650, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(250, 750, 100, 100)
+    context.closePath();
+
+    context.beginPath();
+    context.fillStyle = 'black'
+    context.fillRect(350, 50, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(350, 150, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(350, 250, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(350, 350, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(350, 450, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(350, 550, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(350, 650, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(350, 750, 100, 100)
+    context.closePath();
+
+    context.beginPath();
+    context.fillStyle = 'white'
+    context.fillRect(450, 50, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(450, 150, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(450, 250, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(450, 350, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(450, 450, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(450, 550, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(450, 650, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(450, 750, 100, 100)
+    context.closePath();
+
+    context.beginPath();
+    context.fillStyle = 'black'
+    context.fillRect(550, 50, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(550, 150, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(550, 250, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(550, 350, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(550, 450, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(550, 550, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(550, 650, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(550, 750, 100, 100)
+    context.closePath();
+    
+    context.beginPath();
+    context.fillStyle = 'white'
+    context.fillRect(650, 50, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(650, 150, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(650, 250, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(650, 350, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(650, 450, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(650, 550, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(650, 650, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(650, 750, 100, 100)
+    context.closePath();
+
+    context.beginPath();
+    context.fillStyle = 'black'
+    context.fillRect(750, 50, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(750, 150, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(750, 250, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(750, 350, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(750, 450, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(750, 550, 100, 100)
+    context.fillStyle = 'black'
+    context.fillRect(750, 650, 100, 100)
+    context.fillStyle = 'white'
+    context.fillRect(750, 750, 100, 100)
+    context.closePath();
+    
+    context.beginPath();
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("A", 100, 35);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("B", 200, 35);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("C", 300, 35);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("D", 400, 35);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("E", 500, 35);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("F", 600, 35);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("G", 700, 35);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("H", 800, 35);
+    context.closePath();
+    
+    context.beginPath();
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("A", 100, 885);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("B", 200, 885);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("C", 300, 885);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("D", 400, 885);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("E", 500, 885);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("F", 600, 885);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("G", 700, 885);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("H", 800, 885);
+    context.closePath();
+
+    context.beginPath();
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("8", 25, 100);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("7", 25, 200);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("6", 25, 300);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("5", 25, 400);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("4", 25, 500);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("3", 25, 600);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("2", 25, 700);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("1", 25, 800);
+    context.closePath();
+
+    context.beginPath();
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("8", 875, 100);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("7", 875, 200);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("6", 875, 300);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("5", 875, 400);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("4", 875, 500);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("3", 875, 600);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("2", 875, 700);
+    context.fillStyle = 'black'
+    context.font = "35px Georgia";
+    context.textAlign = "center";
+    context.fillText("1", 875, 800);
+    context.closePath();
+
+    
+    
+</script>
+</html>

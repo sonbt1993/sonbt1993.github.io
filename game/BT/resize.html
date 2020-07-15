@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let c = canvas.getContext('2d');
+
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+        var x = 5;
+        var y = 5;
+        width = canvas.width* 0.9;
+        height = canvas.height * 0.9;
+
+        addEventListener("resize", () => {
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+        width = canvas.width* 0.9,
+        height = canvas.height * 0.9;
+        var x = 5;
+        var y = 5;
+        draw()   
+        });
+          
+        
+        function draw() {
+        c.beginPath();
+        c.rect(x, y, width, height);
+        c.strokeStyle = "red";
+        c.stroke(); 
+        c.closePath();
+
+        c.beginPath();
+        c.moveTo(x, y);
+        c.lineTo(width,height);
+        c.strokeStyle = "black";
+        c.stroke();
+
+        c.moveTo(x, height);
+        c.lineTo(width, y);
+        c.strokeStyle = "black";
+        c.stroke();
+        c.closePath();     
+        };
+        
+        draw()
+        
+        
+        
+        
+        
+
+         
+    </script>
+</body>
+</html>

@@ -29,6 +29,9 @@
         addEventListener("resize", () => {
             canvas.width = innerWidth;
             canvas.height = innerHeight;
+            centerX = canvas.width / 2;
+            centerY = canvas.height / 2;
+            
         });
 
         class Circle {
@@ -74,8 +77,8 @@
 
         let centerx = canvas.width / 2;
         let centery = canvas.height / 2;
-        var squareArray = [];
-        var circleArray = [];
+        
+        var array = [];
         let radius = 200;
         //let a = (radius * Math.sqrt( 2 ));
 
@@ -87,19 +90,23 @@
         let squareC = new Square(centerx - radius / (2*Math.sqrt( 2 )), centery - radius / (2*Math.sqrt( 2 )), radius / Math.sqrt( 2 ), 'black'); */
         for (let i = 0; i <= 6; i++) {
             
-            var circle = new Circle(centerx, centery, radius / (Math.pow(Math.sqrt(2), i)), 'blue');
-             
-            circleArray.push(circle)
-            squareArray.forEach(square => square.draw());
+                var circle = new Circle(centerx, centery, radius / (Math.pow(1.414, i)), rgb());
+                array.forEach(circle => circle.draw());
+                array.push(circle);
             
-            
-            var square = new Square(centerx - radius / (Math.pow(Math.sqrt(2), i + 1)), centery - radius / (Math.pow(Math.sqrt(2), i + 1)), (radius * Math.sqrt(2)) / (Math.pow(Math.sqrt(2), i)), 'red')
-            squareArray.push(square);
-            circleArray.forEach(circle => circle.draw());
-            
+                var square = new Square(centerx - radius / (Math.pow(Math.sqrt(2), i + 1)), centery - radius / (Math.pow(Math.sqrt(2), i + 1)), (radius * Math.sqrt(2)) / (Math.pow(Math.sqrt(2), i)), 'red')
+                array.push(square);                
+                array.forEach(square => square.draw());
+              
         }
 
-
+        function rgb() {
+        color = "rgb(";
+        for (var i = 0; i < 3; i++) {
+        color += Math.floor(Math.random() * 255) + ",";
+        }
+        return color.replace(/\,$/, ")");
+        }
         /* function animate() {
             requestAnimationFrame(animate);
             c.clearRect(0, 0, canvas.width, canvas.height);

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" style="width: auto; height: 600px; border: solid;"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let c = canvas.getContext('2d');
+
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+        
+        class Ball {
+            constructor(x, y, radius, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.radius = radius
+                this.dx = 4;
+                this.dy = 4;
+                
+            };
+
+            draw() {                
+                c.beginPath();
+                c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                c.fillStyle = this.color;
+                c.fill();
+                c.closePath();                
+            }
+
+             move() {
+                if(this.x + this.radius + this.dx >= canvas.width||
+                    this.x - this.radius + this.dx <= 0){
+                    this.dx = - this.dx                
+                }else if(this.y - this.radius + this.dy <= 0||
+                    this.y + this.radius + this.dy >= canvas.height){
+                    this.dy = - this.dy
+                }
+
+                if((box.x <= this.x + this.dx && this.x + this.dx <= box.width + box.x)&&
+                        (this.y + this.dy + this.radius >= box.y)){
+                    this.dy=-this.dy
+                           
+                }
+
+                this.y += this.dy;
+                this.x += this.dx;                
+                this.draw()
+            }
+        }
+        
+        class Brick {
+            constructor(x, y, width, height, color) {
+                this.x = x;
+                this.y = y;
+                this.width = 0;
+                this.height = 0;
+                this.color = color;                
+            }
+            draw() {                
+                c.beginPath();
+                c.rect(this.x, this.y, this.width, this.height, this.color);
+                c.fillStyle = this.color;
+                c.fill();
+                c.closePath();                
+            }; 
+
+            create() {
+                var x = 10;
+                var y = 10;
+                var margin = 50;
+                for(var i=0; i<8;i++){
+                    var bricks = new Brick(x +(100+margin)*i,y,100,30,'blue')
+                }
+            };
+
+            draw(){
+                
+            }
+        }
+
+        class Box {
+            constructor(x, y, width, height, color) {
+                this.x = x;
+                this.y = y;
+                this.height = height;
+                this.width = width;
+                this.dx = 0;               
+                this.color = color;
+            };
+
+            draw() {                
+                c.beginPath();
+                c.rect(this.x, this.y, this.width, this.height, this.color);
+                c.fillStyle = this.color;
+                c.fill();
+                c.closePath();                
+            };                  
+        
+    }
+        
+             addEventListener('mousemove', (event) => {
+                    let currentX = event.offsetX
+                    box.x = currentX - box.width / 2
+                })           
+              
+
+
+        var ball = new Ball(70, 70, 20,'black');        
+        ball.draw();
+    
+        var box = new Box(100, canvas.height - 40, 560, 40, 'blue');
+        box.draw();
+
+        
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            c.clearRect(0, 0, canvas.width, canvas.height);
+            ball.move();
+            box.draw()
+            
+        
+        }
+
+        animate();
+    </script>
+</body>
+</html>

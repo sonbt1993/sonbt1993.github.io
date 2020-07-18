@@ -37,20 +37,20 @@
                 if(this.x + this.radius + this.dx >= canvas.width||
                     this.x - this.radius + this.dx <= 0){
                     this.dx = - this.dx                
-                }else if(this.y - this.radius + this.dy <= 0||
-                    this.y + this.radius + this.dy >= canvas.height){
-                    this.dy = - this.dy
-                }
+                }   else if(this.y - this.radius + this.dy <= 0){
+                        this.dy = - this.dy
+                }   else if(this.y + this.radius + this.dy >= canvas.height){
+                        this.dx = 0;   
+                        this.dy = 0;
+                        }
 
                 if((box.x <= this.x + this.dx && this.x + this.dx <= box.width + box.x)&&
                         (this.y + this.dy + this.radius >= box.y)){
-                    this.dy=-this.dy
-                           
+                    this.dy=-this.dy                           
                 }
 
                 this.y += this.dy;
-                this.x += this.dx;                
-                this.draw()
+                this.x += this.dx;
             }
         }
         
@@ -58,31 +58,21 @@
             constructor(x, y, width, height, color) {
                 this.x = x;
                 this.y = y;
-                this.width = 0;
-                this.height = 0;
+                this.width = width;
+                this.height = height;
                 this.color = color;                
             }
+            
             draw() {                
                 c.beginPath();
                 c.rect(this.x, this.y, this.width, this.height, this.color);
                 c.fillStyle = this.color;
                 c.fill();
-                c.closePath();                
+                c.closePath();
+
+                 
             }; 
-
-            create() {
-                var x = 10;
-                var y = 10;
-                var margin = 50;
-                for(var i=0; i<8;i++){
-                    var bricks = new Brick(x +(100+margin)*i,y,100,30,'blue')
-                }
-            };
-
-            draw(){
-                
-            }
-        }
+        } 
 
         class Box {
             constructor(x, y, width, height, color) {
@@ -102,30 +92,42 @@
                 c.closePath();                
             };                  
         
-    }
+        }
         
-             addEventListener('mousemove', (event) => {
-                    let currentX = event.offsetX
-                    box.x = currentX - box.width / 2
-                })           
+        addEventListener('mousemove', (event) => {
+            let currentX = event.offsetX
+            box.x = currentX - box.width / 2
+        })          
               
-
-
-        var ball = new Ball(70, 70, 20,'black');        
-        ball.draw();
-    
+        var ball = new Ball(70, 70, 20,'black');
         var box = new Box(100, canvas.height - 40, 560, 40, 'blue');
-        box.draw();
+        var N = 8; // sẽ sinh ra 8 brick
+        var brickArr = []; //mảng lưu trữ các brick */
+        function generateBrick(N){     
+             for (let i = 0; i < N; i++) {                
+                let x = 10;
+                let y = 10;
+                let margin = 50;                
+                var brick = new Brick(x +(100+margin)*i,y,100,30,'red')
+                brickArr.push(brick)
+                             
+            } 
+             
+        }   
 
-        
-        
         function animate() {
             requestAnimationFrame(animate);
             c.clearRect(0, 0, canvas.width, canvas.height);
             ball.move();
-            box.draw()
+            ball.draw();
+            box.draw();
+            generateBrick(N)
+            brickArr.forEach((brick) => brick.draw());
+            /* if ( (brick.x<=ball.x&&ball.x<=brick.x+brick.width)&&(brick.y<=ball.x&&ball.y<=brick.y+brick.height)) {
+                
+                    brickArr.splice(n, 1);
+                } */
             
-        
         }
 
         animate();
